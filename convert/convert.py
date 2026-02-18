@@ -19,15 +19,24 @@ import torchvision
 
 
 class MobileNetV2WithSoftmax(torch.nn.Module):
-    """MobileNetV2 wrapper that applies softmax to produce probabilities."""
+    """MobileNetV2 wrapper that normalizes input and applies softmax."""
 
     def __init__(self) -> None:
         super().__init__()
         self.base = torchvision.models.mobilenet_v2(
             weights=torchvision.models.MobileNet_V2_Weights.DEFAULT
         )
+        self.register_buffer(
+            "mean",
+            torch.tensor([0.485, 0.456, 0.406]).reshape(1, 3, 1, 1)
+        )
+        self.register_buffer(
+            "std",
+            torch.tensor([0.229, 0.224, 0.225]).reshape(1, 3, 1, 1)
+        )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = (x - self.mean) / self.std
         logits = self.base(x)
         return torch.nn.functional.softmax(
             logits,
