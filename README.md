@@ -24,7 +24,7 @@ A sample project demonstrating how to convert a PyTorch model to Core ML format 
 
 - Python 3.8+
 - Xcode 16.0+
-- iOS 16.0+
+- iOS 17.0+
 
 ## Usage
 
@@ -45,9 +45,16 @@ python convert.py --quantize palettize --nbits 8
 
 ### 2. Run the App
 
-1. Open `Package.swift` in Xcode
+1. Open `CoreMLDemo.xcodeproj` in Xcode
 2. Drag the generated `MobileNetV2.mlpackage` into the project
 3. Select an iOS simulator or device and run
+
+To regenerate the Xcode project from `project.yml`:
+
+```bash
+brew install xcodegen
+xcodegen generate
+```
 
 ## License
 

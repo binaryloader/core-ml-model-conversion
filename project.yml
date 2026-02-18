@@ -1,0 +1,38 @@
+name: CoreMLDemo
+
+options:
+  bundleIdPrefix: io.binaryloader
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+
+targets:
+  CoreMLDemo:
+    type: application
+    platform: iOS
+    sources:
+      - Sources/CoreMLDemo
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: true
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: true
+        INFOPLIST_KEY_UILaunchScreen_Generation: true
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        PRODUCT_BUNDLE_IDENTIFIER: io.binaryloader.CoreMLDemo
+
+  CoreMLDemoTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests/CoreMLDemoTests
+    dependencies:
+      - target: CoreMLDemo
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: true
