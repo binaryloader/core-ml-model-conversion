@@ -36,6 +36,7 @@ def trace_model(model: torch.nn.Module) -> torch.jit.ScriptModule:
 
 def convert_to_coreml(traced_model: torch.jit.ScriptModule) -> ct.models.MLModel:
     """Convert a TorchScript model to Core ML format."""
+    labels = torchvision.models.MobileNet_V2_Weights.DEFAULT.meta["categories"]
     mlmodel = ct.convert(
         traced_model,
         inputs=[
@@ -45,6 +46,7 @@ def convert_to_coreml(traced_model: torch.jit.ScriptModule) -> ct.models.MLModel
                 scale=1 / 255.0
             )
         ],
+        classifier_config=ct.ClassifierConfig(labels),
         minimum_deployment_target=ct.target.iOS16,
     )
     return mlmodel

@@ -34,6 +34,9 @@ targets:
     platform: iOS
     sources:
       - Tests/CoreMLDemoTests
+      - path: convert/MobileNetV2.mlpackage
+        optional: true
+        type: file
     dependencies:
       - target: CoreMLDemo
     settings:

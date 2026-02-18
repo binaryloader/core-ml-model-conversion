@@ -5,6 +5,7 @@
 //  Created by BinaryLoader on 2/18/26.
 //
 
+import CoreML
 import XCTest
 @testable import CoreMLDemo
 
@@ -16,21 +17,43 @@ final class ImageClassifierTests: XCTestCase {
 
         XCTAssertTrue(classifier.results.isEmpty)
         XCTAssertFalse(classifier.isClassifying)
-        XCTAssertNil(classifier.errorMessage)
     }
 
     @MainActor
-    func testClassifyWithoutModelSetsError() {
+    func testClassifyProducesResults() {
         let classifier = ImageClassifier()
+
+        guard classifier.errorMessage == nil else {
+            XCTFail("Model failed to load: \(classifier.errorMessage!)")
+            return
+        }
 
         let image = createTestImage()
         classifier.classify(image)
 
-        XCTAssertEqual(
-            classifier.errorMessage,
-            "Model not loaded"
+        let expectation = XCTestExpectation(description: "Classification completes")
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            XCTAssertFalse(classifier.isClassifying)
+            XCTAssertNil(classifier.errorMessage)
+            XCTAssertFalse(classifier.results.isEmpty)
+
+            if let top = classifier.results.first {
+                XCTAssertFalse(top.label.isEmpty)
+                XCTAssertGreaterThan(
+                    top.confidence,
+                    0
+                )
+                print("Top result: \(top.label) (\(top.confidencePercentage))")
+            }
+
+            expectation.fulfill()
+        }
+
+        wait(
+            for: [expectation],
+            timeout: 10
         )
-        XCTAssertFalse(classifier.isClassifying)
     }
 
     func testClassificationResultConfidencePercentage() {

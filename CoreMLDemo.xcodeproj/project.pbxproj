@@ -12,6 +12,7 @@
 		804B0444F9ED8A580FA9C46C /* MobileNetV2.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = B7321A8C30F47F9AA7B23569 /* MobileNetV2.mlpackage */; };
 		A3D30883457E38C6C58F4B9C /* CoreMLDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F13DD2882AC13DD51E070 /* CoreMLDemoApp.swift */; };
 		CDADCEA73F485EE63E6E606C /* ImageClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9FF57900BB49E0456A2480 /* ImageClassifierTests.swift */; };
+		E91534EC78B1B6247729E96C /* MobileNetV2.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = B7321A8C30F47F9AA7B23569 /* MobileNetV2.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDADCEA73F485EE63E6E606C /* ImageClassifierTests.swift in Sources */,
+				E91534EC78B1B6247729E96C /* MobileNetV2.mlpackage in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
