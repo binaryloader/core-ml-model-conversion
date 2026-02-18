@@ -56,10 +56,11 @@ public struct ContentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .shadow(radius: 4)
         } else {
+            let description = Text("Select a photo to classify")
             ContentUnavailableView(
                 "No Photo Selected",
                 systemImage: "photo",
-                description: Text("Select a photo to classify")
+                description: description
             )
         }
     }
@@ -75,7 +76,10 @@ public struct ContentView: View {
             )
             .foregroundStyle(.red)
         } else if !classifier.results.isEmpty {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(
+                alignment: .leading,
+                spacing: 8
+            ) {
                 Text("Results")
                     .font(.headline)
 

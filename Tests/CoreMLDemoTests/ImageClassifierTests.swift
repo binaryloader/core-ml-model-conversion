@@ -85,18 +85,20 @@ final class ImageClassifierTests: XCTestCase {
             bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
         )!
 
-        context.setFillColor(CGColor(
+        let fillColor = CGColor(
             red: 0.5,
             green: 0.5,
             blue: 0.5,
             alpha: 1.0
-        ))
-        context.fill(CGRect(
+        )
+        context.setFillColor(fillColor)
+        let fillRect = CGRect(
             x: 0,
             y: 0,
             width: width,
             height: height
-        ))
+        )
+        context.fill(fillRect)
 
         return context.makeImage()!
     }
