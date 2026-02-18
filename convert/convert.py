@@ -18,11 +18,26 @@ import torch
 import torchvision
 
 
+class MobileNetV2WithSoftmax(torch.nn.Module):
+    """MobileNetV2 wrapper that applies softmax to produce probabilities."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.base = torchvision.models.mobilenet_v2(
+            weights=torchvision.models.MobileNet_V2_Weights.DEFAULT
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        logits = self.base(x)
+        return torch.nn.functional.softmax(
+            logits,
+            dim=1
+        )
+
+
 def load_pytorch_model() -> torch.nn.Module:
     """Load a pre-trained MobileNetV2 model in evaluation mode."""
-    model = torchvision.models.mobilenet_v2(
-        weights=torchvision.models.MobileNet_V2_Weights.DEFAULT
-    )
+    model = MobileNetV2WithSoftmax()
     model.eval()
     return model
 
