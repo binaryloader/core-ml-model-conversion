@@ -49,10 +49,6 @@ python convert.py --quantize palettize --nbits 8
 2. Drag the generated `MobileNetV2.mlpackage` into the project
 3. Select an iOS simulator or device and run
 
-## Related Repositories
-
-- [blog](https://github.com/binaryloader/blog) — Blog post: *coremltools로 머신러닝 모델을 iOS 앱에 통합하기*
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

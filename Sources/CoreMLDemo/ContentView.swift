@@ -102,8 +102,9 @@ public struct ContentView: View {
         guard let selectedItem else { return }
 
         Task {
-            guard let data = try? await selectedItem.loadTransferable(type: Data.self),
-                  let uiImage = UIImage(data: data)
+            guard
+                let data = try? await selectedItem.loadTransferable(type: Data.self),
+                let uiImage = UIImage(data: data)
             else { return }
 
             selectedImage = uiImage

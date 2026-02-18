@@ -22,7 +22,10 @@ public struct ClassificationResult: Identifiable, Sendable {
     public let confidence: Float
 
     public var confidencePercentage: String {
-        String(format: "%.1f%%", confidence * 100)
+        String(
+            format: "%.1f%%",
+            confidence * 100
+        )
     }
 }
 

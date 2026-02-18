@@ -26,7 +26,10 @@ final class ImageClassifierTests: XCTestCase {
         let image = createTestImage()
         classifier.classify(image)
 
-        XCTAssertEqual(classifier.errorMessage, "Model not loaded")
+        XCTAssertEqual(
+            classifier.errorMessage,
+            "Model not loaded"
+        )
         XCTAssertFalse(classifier.isClassifying)
     }
 
@@ -36,7 +39,10 @@ final class ImageClassifierTests: XCTestCase {
             confidence: 0.956
         )
 
-        XCTAssertEqual(result.confidencePercentage, "95.6%")
+        XCTAssertEqual(
+            result.confidencePercentage,
+            "95.6%"
+        )
     }
 
     func testClassificationResultZeroConfidence() {
@@ -45,7 +51,10 @@ final class ImageClassifierTests: XCTestCase {
             confidence: 0.0
         )
 
-        XCTAssertEqual(result.confidencePercentage, "0.0%")
+        XCTAssertEqual(
+            result.confidencePercentage,
+            "0.0%"
+        )
     }
 
     func testClassificationResultFullConfidence() {
@@ -54,7 +63,10 @@ final class ImageClassifierTests: XCTestCase {
             confidence: 1.0
         )
 
-        XCTAssertEqual(result.confidencePercentage, "100.0%")
+        XCTAssertEqual(
+            result.confidencePercentage,
+            "100.0%"
+        )
     }
 
     // MARK: - Helpers
