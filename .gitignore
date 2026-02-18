@@ -1,0 +1,32 @@
+# Xcode
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+DerivedData/
+*.xcscheme
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+venv/
+.venv/
+
+# Core ML
+*.mlpackage
+*.mlmodel
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+*.code-workspace
+
+# Claude
+CLAUDE.md
