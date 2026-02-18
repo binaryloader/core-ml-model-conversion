@@ -39,7 +39,9 @@ public final class ImageClassifier: ObservableObject {
 
     private var vnModel: VNCoreMLModel?
 
-    public init() {}
+    public init() {
+        loadBundledModel()
+    }
 
     /// Loads the Core ML model. Call this before performing classification.
     /// - Parameter mlModel: A compiled `MLModel` instance.
@@ -47,6 +49,23 @@ public final class ImageClassifier: ObservableObject {
         do {
             vnModel = try VNCoreMLModel(for: mlModel)
             errorMessage = nil
+        } catch {
+            errorMessage = "Failed to load model: \(error.localizedDescription)"
+        }
+    }
+
+    private func loadBundledModel() {
+        guard let url = Bundle.main.url(
+            forResource: "MobileNetV2",
+            withExtension: "mlmodelc"
+        ) else {
+            errorMessage = "Model not found. Add MobileNetV2.mlpackage to the project."
+            return
+        }
+
+        do {
+            let mlModel = try MLModel(contentsOf: url)
+            loadModel(mlModel)
         } catch {
             errorMessage = "Failed to load model: \(error.localizedDescription)"
         }

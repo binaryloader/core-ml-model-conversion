@@ -16,6 +16,9 @@ targets:
     platform: iOS
     sources:
       - Sources/CoreMLDemo
+      - path: convert/MobileNetV2.mlpackage
+        optional: true
+        type: file
     settings:
       base:
         GENERATE_INFOPLIST_FILE: true

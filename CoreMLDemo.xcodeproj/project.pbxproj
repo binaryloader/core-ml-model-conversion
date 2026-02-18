@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3647E306D6EE40DA7F37AE61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472A3AC904D56478FF61136 /* ContentView.swift */; };
 		68568787BD8ECDD97508DBF1 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A2551FF5575AA5D4FB497 /* ImageClassifier.swift */; };
+		804B0444F9ED8A580FA9C46C /* MobileNetV2.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = B7321A8C30F47F9AA7B23569 /* MobileNetV2.mlpackage */; };
 		A3D30883457E38C6C58F4B9C /* CoreMLDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F13DD2882AC13DD51E070 /* CoreMLDemoApp.swift */; };
 		CDADCEA73F485EE63E6E606C /* ImageClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9FF57900BB49E0456A2480 /* ImageClassifierTests.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		3BA70A045F90749AFE7841F3 /* CoreMLDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CoreMLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C9FF57900BB49E0456A2480 /* ImageClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifierTests.swift; sourceTree = "<group>"; };
 		8C3A2551FF5575AA5D4FB497 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
+		B7321A8C30F47F9AA7B23569 /* MobileNetV2.mlpackage */ = {isa = PBXFileReference; path = MobileNetV2.mlpackage; sourceTree = "<group>"; };
 		DFC4D603870C80BCA2033EBB /* CoreMLDemoTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CoreMLDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F472A3AC904D56478FF61136 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -36,6 +38,7 @@
 		23E138DE1C3ED326D37B6D17 = {
 			isa = PBXGroup;
 			children = (
+				B825F80A62CAE83952D7DEB5 /* convert */,
 				CC348EF5CA4FB1507AE749AD /* Sources */,
 				6E0B966035CBA4910A5A4A95 /* Tests */,
 				2B31B622456BCC2BB3DB0ADA /* Products */,
@@ -75,6 +78,14 @@
 				423CA50DB13108343FC81055 /* CoreMLDemoTests */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		B825F80A62CAE83952D7DEB5 /* convert */ = {
+			isa = PBXGroup;
+			children = (
+				B7321A8C30F47F9AA7B23569 /* MobileNetV2.mlpackage */,
+			);
+			path = convert;
 			sourceTree = "<group>";
 		};
 		CC348EF5CA4FB1507AE749AD /* Sources */ = {
@@ -168,6 +179,7 @@
 				3647E306D6EE40DA7F37AE61 /* ContentView.swift in Sources */,
 				A3D30883457E38C6C58F4B9C /* CoreMLDemoApp.swift in Sources */,
 				68568787BD8ECDD97508DBF1 /* ImageClassifier.swift in Sources */,
+				804B0444F9ED8A580FA9C46C /* MobileNetV2.mlpackage in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
